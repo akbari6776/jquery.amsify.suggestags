@@ -43,7 +43,7 @@ var AmsifySuggestags;
 		this.defaultLabel  = 'Type here';
 		this.classes       = {
 			sTagsArea     : '.amsify-suggestags-area',
-			inputArea     : '.amsify-suggestags-input-area',
+			inputArea     : '.amsify-suggestags-input-area clearfix',
 			inputAreaDef  : '.amsify-suggestags-input-area-default',
 			focus         : '.amsify-focus',
 			sTagsInput    : '.amsify-suggestags-input',
@@ -75,7 +75,7 @@ var AmsifySuggestags;
 		this.tagNames   = [];
 	};
 	AmsifySuggestags.prototype = {
-	   /**
+	    /**
 		* Merging default settings with custom
 		* @type {object}
 		*/
@@ -483,8 +483,8 @@ var AmsifySuggestags;
 			if(!value) {
                 return;
             }
-			var html = '<span class="'+this.classes.tagItem.substring(1)+'" data-val="'+value+'">'+this.getTag(value)+' '+this.setIcon()+'</span>';
-			$item    = $(html).insertBefore($(this.selectors.sTagsInput));
+			var html = '<span class="'+this.classes.tagItem.substring(1)+'" data-val="'+value+'">'+this.setIcon()+''+this.getTag(value)+'</span>';
+			$item    = $(html).insertAfter($(this.selectors.sTagsInput));
 			if(this.settings.defaultTagClass) {
 				$item.addClass(this.settings.defaultTagClass);
 			}
